@@ -66,6 +66,22 @@
             'value': 1 // Optional: Use a value to represent plays
           });
         });
+
+        video.addEventListener('pause', function() {
+        gtag('event', 'video_pause', {
+            'event_category': 'Video',
+            'event_label': 'Your Video Title'
+        });
+        });
+
+
+        video.addEventListener('ended', function() {
+        gtag('event', 'video_complete', {
+            'event_category': 'Video',
+            'event_label': 'Your Video Title'
+        });
+        });
+
       </script>
 
 </body>
