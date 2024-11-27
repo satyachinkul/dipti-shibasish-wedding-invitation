@@ -48,10 +48,25 @@
 <body>
     <div class="video-container">
         <!-- Video element with a poster image -->
-        <video id="videoPlayer" controls poster="thumbnailSd.jpg">
+        <video id="videoPlayer" controls loop poster="thumbnailSd.jpg">
             <source src="videoSD.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
+    <script>
+        // Get the video element
+        const video = document.getElementById('videoPlayer');
+      
+        // Add an event listener for the 'play' event
+        video.addEventListener('play', function() {
+          // Log the event in Google Analytics
+          gtag('event', 'video_play', {
+            'event_category': 'Video',
+            'event_label': 'Invitation Video', // Optional: Add a title or identifier for the video
+            'value': 1 // Optional: Use a value to represent plays
+          });
+        });
+      </script>
+
 </body>
 </html>
